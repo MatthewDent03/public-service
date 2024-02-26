@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Report;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Report;
 
 class ReportSeeder extends Seeder
 {

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Stop;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class StopFactory extends Factory
     {
         return [
             'location_name' => fake()->word,
-            'number' => fake()->number,
+            'number' => fake()->word,
             'estimated_arrival_time' => fake()->time(),
             'created_at' => now(),
             'updated_at' => now(),

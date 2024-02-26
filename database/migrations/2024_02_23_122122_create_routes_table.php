@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('end_location');
             $table->text('estimated_departure');
             $table->text('estimated_arrival');
-            $table->enum('journey_route', ['S8', 'S6', '15', '15B']);
+            $table->text('journey_route');
             $table->timestamps();
         });
     }
