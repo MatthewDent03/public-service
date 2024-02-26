@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('stops', function (Blueprint $table) {
             $table->id();
+            $table->string('location_name');
+            $table->text('number');
+            $table->text('estimated_arrival_time');
             $table->timestamps();
         });
     }

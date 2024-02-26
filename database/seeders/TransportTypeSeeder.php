@@ -12,6 +12,6 @@ class TransportTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        TransportType::factory(3)->create();
     }
 }

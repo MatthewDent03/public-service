@@ -12,6 +12,6 @@ class StopSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Stop::factory(3)->create();
     }
 }

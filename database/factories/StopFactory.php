@@ -17,7 +17,11 @@ class StopFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'location_name' => fake()->word,
+            'number' => fake()->number,
+            'estimated_arrival_time' => fake()->time(),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
