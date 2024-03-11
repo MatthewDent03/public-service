@@ -3,68 +3,58 @@
 @section('content')
     <div class="container mx-5">
         <div class="row justify-content-center">
-            <div>
-                <h1>Hello World</h1>
-                <h3>This is a laravel-bootstrap template</h3>
-                <div class="mt-5">
-                    <button type="button" class="btn btn-primary">Primary</button>
-                    <button type="button" class="btn btn-secondary">Secondary</button>
-                    <button type="button" class="btn btn-success">Success</button>
-                    <button type="button" class="btn btn-danger">Danger</button>
-                    <button type="button" class="btn btn-warning">Warning</button>
-                    <button type="button" class="btn btn-info">Info</button>
-                    <button type="button" class="btn btn-light">Light</button>
-                    <button type="button" class="btn btn-dark">Dark</button>
-
-                    <button type="button" class="btn btn-link">Link</button>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @if(isset($data['entity']) && !empty($data['entity']))
+                        @foreach($data['entity'] as $key => $entity)
+                            <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">ID: {{ $entity['id'] }}</h5>
+                                                @if(isset($entity['trip_update']))
+                                                    <p class="card-text">
+                                                        Start Time: {{ $entity['trip_update']['trip']['start_time'] ?? 'N/A' }}<br>
+                                                        Start Date: {{ $entity['trip_update']['trip']['start_date'] ?? 'N/A' }}<br>
+                                                        Route ID: {{ $entity['trip_update']['trip']['route_id'] ?? 'N/A' }}<br>
+                                                    </p>
+                                                    
+                                                    @if(isset($entity['trip_update']['stop_time_update']))
+                                                        <ul class="list-group">
+                                                            @foreach($entity['trip_update']['stop_time_update'] as $stop_update)
+                                                                <li class="list-group-item bg-primary text-white">
+                                                                    @if(isset($stop_update['arrival']['delay']))
+                                                                        Arrival Delay: {{ $stop_update['arrival']['delay'] }}<br>
+                                                                    @else
+                                                                        Arrival Delay: N/A<br>
+                                                                    @endif
+                                                                    Stop ID: {{ $stop_update['stop_id'] }}<br>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="carousel-item active">
+                            <p>No data available</p>
+                        </div>
+                    @endif
                 </div>
-
-                <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
-                    <div class="col">
-                        <div class="card">
-                            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-social.png"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-social.png"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-social.png"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                    to additional content.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-social.png"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                    to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </div>
