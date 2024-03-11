@@ -17,4 +17,7 @@ class Route extends Model
         'estimated_arrival',
         'journey_route',
     ];
+
+    
+
 }

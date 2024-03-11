@@ -30,7 +30,28 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <!-- Dropdown for Schedule -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSchedule" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Schedule
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownSchedule">
+                                <a class="nav-link" href="{{ url('/fetch-transport-data') }}">View Schedule</a>
+                            </div>
+                        </li>
+                        <!-- End Dropdown for Schedule -->
 
+                        <!-- Dropdown for Reports -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownReports" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Reports
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownReports">
+                                <a class="dropdown-item" href="#">Make Report</a>
+                                <a class="dropdown-item" href="#">View Report</a>
+                            </div>
+                        </li>
+                        <!-- End Dropdown for Reports -->
                     </ul>
 
                     <!-- Right Side Of Navbar -->
