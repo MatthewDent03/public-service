@@ -16,6 +16,8 @@
                                         Start Time: {{ $entity['trip_update']['trip']['start_time'] ?? 'N/A' }}<br>
                                         Start Date: {{ $entity['trip_update']['trip']['start_date'] ?? 'N/A' }}<br>
                                         Route ID: {{ $entity['trip_update']['trip']['route_id'] ?? 'N/A' }}<br>
+                                        Route Name: {{ $entity['routes']['route']['route_short_name'] ?? 'N/A'}}<br>
+                                        
                                     </p>
                                     
                                     @if(isset($entity['trip_update']['stop_time_update']))

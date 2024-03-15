@@ -27,4 +27,6 @@ class ScheduleController extends Controller
             return view('errors.Schedule_error')->with('errorMessage', $errorMessage);
         }
     }
+
+    
 }
