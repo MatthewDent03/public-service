@@ -28,9 +28,9 @@
             @endif
 
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+            <div class="min-h-screen bg-gray-100">
+                @yield('content')
+            </div>
         </div>
     </body>
 </html>
