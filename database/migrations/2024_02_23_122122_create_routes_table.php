@@ -18,7 +18,6 @@ return new class extends Migration
             $table->text('estimated_departure');
             $table->text('estimated_arrival');
             $table->text('journey_route');
-            $table->string('csv_file')->nullable(); // Add new column for CSV file, allowing null values
             $table->timestamps();
         });
     }

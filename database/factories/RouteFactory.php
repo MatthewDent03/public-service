@@ -15,7 +15,6 @@ class RouteFactory extends Factory
             'estimated_departure' => $this->faker->time(),
             'estimated_arrival' => $this->faker->time(),
             'journey_route' => $this->faker->word,
-            'csv_file' => $this->faker->file, // Generate dummy CSV file name
             'created_at' => now(),
             'updated_at' => now(),
         ];

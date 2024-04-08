@@ -8,12 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Route extends Model
 {
+    use hasFactory;
+
     protected $fillable = [
         'start_location',
         'end_location',
         'estimated_departure',
         'estimated_arrival',
         'journey_route',
-        'csv_file', // New field for CSV file
     ];
+
+    public function privateCompany()
+    {
+        return $this->belongsTo(PrivateCompany::class);
+    }
 }

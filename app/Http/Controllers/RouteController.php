@@ -5,25 +5,62 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRouteRequest;
 use App\Http\Requests\UpdateRouteRequest;
 use App\Models\Route;
-use Illuminate\Http\Request;
 
 class RouteController extends Controller
 {
-    public function store(Request $request)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        $data = $request->validated();
-        $data['csv_file'] = $request->file('csv_file')->store('csv_files'); // Store uploaded CSV file
-        Route::create($data);
-        return redirect()->route('routes.index')->with('success', 'Route created successfully.');
+        //
     }
 
-    public function update(Request $request, Route $route)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        $data = $request->validated();
-        if ($request->hasFile('csv_file')) {
-            $data['csv_file'] = $request->file('csv_file')->store('csv_files'); // Update CSV file if provided
-        }
-        $route->update($data);
-        return redirect()->route('routes.index')->with('success', 'Route updated successfully.');
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreRouteRequest $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Route $route)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Route $route)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateRouteRequest $request, Route $route)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Route $route)
+    {
+        //
     }
 }
