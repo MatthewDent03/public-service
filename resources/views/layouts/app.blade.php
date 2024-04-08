@@ -58,11 +58,6 @@
                                         <a class="nav-link" href="{{ route('reports.index') }}">{{ __('All Reports') }}</a>
                                     @endif
                                 </div>
-                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                    @if(auth()->user()->hasRole('admin'))
-                                        <a class="nav-link" href="{{ route('admin.reports.create') }}">{{ __('Create Report') }}</a>
-                                    @endif
-                                </div>         
                             </div>
                         </li>
 
