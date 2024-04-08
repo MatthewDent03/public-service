@@ -12,26 +12,32 @@
                             <div class="card-body">
                                 <h5 class="card-title">ID: {{ $entity['id'] }}</h5>
                                 @if(isset($entity['trip_update']))
-                                    <p class="card-text">
+                                    <p>
                                         Start Time: {{ $entity['trip_update']['trip']['start_time'] ?? 'N/A' }}<br>
                                         Start Date: {{ $entity['trip_update']['trip']['start_date'] ?? 'N/A' }}<br>
                                         Route ID: {{ $entity['trip_update']['trip']['route_id'] ?? 'N/A' }}<br>                                        
                                     </p>
                                     
-                                    @if(isset($entity['trip_update']['stop_time_update']))
-                                        <ul class="list-group">
-                                            @foreach($entity['trip_update']['stop_time_update'] as $stop_update)
-                                                <li class="list-group-item bg-primary text-white">
-                                                    @if(isset($stop_update['arrival']['delay']))
-                                                        Arrival Delay: {{ $stop_update['arrival']['delay'] }}<br>
-                                                    @else
-                                                        Arrival Delay: N/A<br>
-                                                    @endif
-                                                    Stop ID: {{ $stop_update['stop_id'] }}<br>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
+                                    <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Trip Update Data
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            @if(isset($entity['trip_update']['stop_time_update']))
+                                                @foreach($entity['trip_update']['stop_time_update'] as $stop_update)
+                                                    <a class="dropdown-item" href="#">
+                                                        @if(isset($stop_update['arrival']['delay']))
+                                                            Arrival Delay: {{ $stop_update['arrival']['delay'] }}
+                                                        @else
+                                                            Arrival Delay: N/A
+                                                        @endif
+                                                        <br>
+                                                        Stop ID: {{ $stop_update['stop_id'] }}
+                                                    </a>
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                    </div>
                                 @endif
                             </div>
                         </div>
