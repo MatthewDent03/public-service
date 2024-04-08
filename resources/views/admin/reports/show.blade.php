@@ -17,7 +17,7 @@
                     <!-- Add any additional fields you want to display -->
 
                     <!-- Back Button -->
-                    <a href="{{ route('admin.reports.index') }}" class="btn btn-secondary">{{ __('Back') }}</a>
+                    <a href="{{ route('admin.reports.index') }}" class="btn btn-primary">{{ __('Back') }}</a>
                 </div>
             </div>
         </div>

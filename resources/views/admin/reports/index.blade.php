@@ -24,13 +24,13 @@
                                 <td>{{ $report->title }}</td>
                                 <td>{{ $report->description }}</td>
                                 <td>
-                                    <a href="{{ route('admin.reports.show', $report->id) }}" class="btn btn-info btn-sm">{{ __('View') }}</a>
+                                    <a href="{{ route('admin.reports.show', $report->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>
                                     <a href="{{ route('admin.reports.edit', $report->id) }}" class="btn btn-primary btn-sm">{{ __('Edit') }}</a>
                                     <!-- Add Delete Button with Form -->
                                     <form action="{{ route('admin.reports.destroy', $report->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this report?')">{{ __('Delete') }}</button>
+                                        <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to delete this report?')">{{ __('Delete') }}</button>
                                     </form>
                                 </td>
                             </tr>

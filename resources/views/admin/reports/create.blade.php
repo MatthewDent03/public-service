@@ -33,7 +33,7 @@
 
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
-                            <a href="{{ route('admin.reports.index') }}" class="btn btn-secondary">{{ __('Cancel') }}</a>
+                            <a href="{{ route('admin.reports.index') }}" class="btn btn-primary">{{ __('Cancel') }}</a>
                         </div>
                     </form>
                 </div>
