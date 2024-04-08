@@ -5,26 +5,21 @@ namespace Database\Factories;
 use App\Models\Route;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Route>
- */
 class RouteFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'start_location' => fake()->word,
-            'end_location' => fake()->word,
-            'estimated_departure' => fake()->time(),
-            'estimated_arrival' => fake()->time(),
-            'journey_route' => fake()->word,
+            'start_location' => $this->faker->word,
+            'end_location' => $this->faker->word,
+            'estimated_departure' => $this->faker->time(),
+            'estimated_arrival' => $this->faker->time(),
+            'journey_route' => $this->faker->word,
+            'csv_file' => $this->faker->file, // Generate dummy CSV file name
             'created_at' => now(),
             'updated_at' => now(),
         ];
     }
 }
+
+

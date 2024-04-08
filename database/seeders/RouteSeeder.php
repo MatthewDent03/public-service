@@ -8,11 +8,9 @@ use App\Models\Route;
 
 class RouteSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
         Route::factory(3)->create();
     }
 }
+
