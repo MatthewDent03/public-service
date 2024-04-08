@@ -18,6 +18,8 @@ class Route extends Model
         'journey_route',
     ];
 
-    
-
+    public function privateCompany()
+    {
+        return $this->belongsTo(PrivateCompany::class);
+    }
 }

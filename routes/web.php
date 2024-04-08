@@ -46,7 +46,7 @@ Route::resource('/admin/reports', AdminReportController::class)->middleware(['au
 
 Route::resource('private_companies', PrivateCompanyController::class)->names('private_companies');
 
-
+Route::resource('routes', RouteController::class)->names('routes');
 
 require __DIR__.'/auth.php';
 
