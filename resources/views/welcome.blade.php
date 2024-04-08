@@ -10,21 +10,30 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Reports</h5>
-                    <p class="card-text">View detailed reports about our transportation services.</p>
+                    <p class="card-text">View detailed reports about our transportation services and reviews.</p>
                     <a href="#" class="btn btn-primary">View Reports</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Live Feed</h5>
-                    <p class="card-text">Get live updates about our transportation operations.</p>
+                    <h5 class="card-title">Private Transportation</h5>
+                    <p class="card-text">Get access to our transportation services provided via private companies.</p>
                     <a href="#" class="btn btn-primary">View Live Feed</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Live Schedule Updates</h5>
+                    <p class="card-text">Get live updates about our transportation operations and scheduling.</p>
+                    <a href="/fetch-transport-data" class="btn btn-primary">View Live Feed</a>
                 </div>
             </div>
         </div>
