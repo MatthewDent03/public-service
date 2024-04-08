@@ -62,6 +62,26 @@
                                 </div>
                             </div>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPrivateCompanies" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Private Companies
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPrivateCompanies">
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                    @auth
+                                        @if(auth()->user()->hasRole('admin'))
+                                            <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
+                                            <a class="nav-link" href="{{ route('private_companies.create') }}">{{ __('Create Private Company') }}</a>
+                                        @elseif(auth()->user()->hasRole('user'))
+                                            <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
+                                        @else
+                                            <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
+                                        @endif
+                                    @endauth
+                                </div>
+                            </div>
+                        </li>
                         <!-- End Dropdown for Reports -->
                     </ul>
 

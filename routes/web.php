@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ReportController as AdminReportController;
 use App\Http\Controllers\User\ReportController as UserReportController;
+use App\Http\Controllers\PrivateCompanyController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\UserController;
 
@@ -42,6 +43,8 @@ Route::resource('/user/reports', UserReportController::class)->middleware(['auth
 
 // For Admin Reports
 Route::resource('/admin/reports', AdminReportController::class)->middleware(['auth'])->names('admin.reports');
+
+Route::resource('private_companies', PrivateCompanyController::class)->names('private_companies');
 
 
 

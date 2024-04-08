@@ -49,11 +49,24 @@
     @endif
 
     </div>
+    
     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
         @if(auth()->user()->hasRole('admin'))
             <a class="nav-link" href="{{ route('admin.reports.create') }}">{{ __('Create Report') }}</a>
         @endif
     </div>         
+
+    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+    @if(auth()->user()->hasRole('admin'))
+        <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
+        <a class="nav-link" href="{{ route('private_companies.create') }}">{{ __('Create Private Company') }}</a>
+    @elseif(auth()->user()->hasRole('user'))
+        <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
+    @else
+        <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
+    @endif
+
+    </div>
 
     <!-- Responsive Settings Options -->
     <div class="pt-4 pb-1 border-t border-gray-200">

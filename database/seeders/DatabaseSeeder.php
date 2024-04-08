@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ReportSeeder::class);
         $this->call(StopSeeder::class);
         $this->call(TransportTypeSeeder::class);
+        $this->call(PrivateCompanySeeder::class);
     }
 }
