@@ -43,6 +43,16 @@
                             @enderror
                         </div>
 
+                        <div class="mb-3">
+                            <label for="company_number" class="form-label">{{ __('Company number') }}</label>
+                            <textarea id="company_number" class="form-control @error('company_number') is-invalid @enderror" name="company_number" rows="5" required>{{ old('company_number', $privateCompany->company_number) }}</textarea>
+                            @error('company_number')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
                         <!-- Add fields for other attributes -->
 
                         <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>

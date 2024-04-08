@@ -93,7 +93,7 @@ public function update(Request $request, PrivateCompany $privateCompany)
             $request->validate([
                 'company_name' => 'required',
                 'company_email' => 'required',
-                'company_number' => 'nullable',
+                'company_number' => 'required',
             ]);
 
             // Update the private company details
@@ -125,6 +125,6 @@ public function update(Request $request, PrivateCompany $privateCompany)
         } else {
             // If not admin, redirect to index
             return redirect()->route('private_companies.index')->with('error', 'You do not have permission to delete companies.');
-        }
+    }
     }
 }
