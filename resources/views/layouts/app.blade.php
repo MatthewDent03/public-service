@@ -47,20 +47,21 @@
                                 Reports
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownReports">
-                                <!-- Move the code here -->
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                    @if(auth()->user()->hasRole('admin'))
-                                        <a class="nav-link" href="{{ route('admin.reports.index') }}">{{ __('All Reports') }}</a>
-                                        <a class="nav-link" href="{{ route('admin.reports.create') }}">{{ __('Create Report') }}</a>
-                                    @elseif(auth()->user()->hasRole('user'))
-                                        <a class="nav-link" href="{{ route('user.reports.index') }}">{{ __('All Reports') }}</a>
-                                    @else
-                                        <a class="nav-link" href="{{ route('reports.index') }}">{{ __('All Reports') }}</a>
-                                    @endif
+                                    @auth
+                                        @if(auth()->user()->hasRole('admin'))
+                                            <a class="nav-link" href="{{ route('admin.reports.index') }}">{{ __('All Reports') }}</a>
+                                            <a class="nav-link" href="{{ route('admin.reports.create') }}">{{ __('Create Report') }}</a>
+                                        @elseif(auth()->user()->hasRole('user'))
+                                            <a class="nav-link" href="{{ route('user.reports.index') }}">{{ __('All Reports') }}</a>
+                                            <a class="nav-link" href="{{ route('user.reports.create') }}">{{ __('Create Report') }}</a>
+                                        @else
+                                            <a class="nav-link" href="{{ route('reports.index') }}">{{ __('All Reports') }}</a>
+                                        @endif
+                                    @endauth
                                 </div>
                             </div>
                         </li>
-
                         <!-- End Dropdown for Reports -->
                     </ul>
 

@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/admin/reports', AdminReportController::class)->middleware(['auth'])->names('admin.reports');
-Route::resource('/user/reports', UserReportController::class)->middleware(['auth'])->names('user.reports')->only(['index', 'show']);
+Route::resource('/user/reports', UserReportController::class)->middleware(['auth'])->names('user.reports');
 
 require __DIR__.'/auth.php';
 
