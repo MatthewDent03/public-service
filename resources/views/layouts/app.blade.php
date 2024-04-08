@@ -47,10 +47,25 @@
                                 Reports
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownReports">
-                                <a class="dropdown-item" href="#">Make Report</a>
-                                <a class="dropdown-item" href="#">View Report</a>
+                                <!-- Move the code here -->
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                    @if(auth()->user()->hasRole('admin'))
+                                        <a class="nav-link" href="{{ route('admin.reports.index') }}">{{ __('All Reports') }}</a>
+                                        <a class="nav-link" href="{{ route('admin.reports.create') }}">{{ __('Create Report') }}</a>
+                                    @elseif(auth()->user()->hasRole('user'))
+                                        <a class="nav-link" href="{{ route('user.reports.index') }}">{{ __('All Reports') }}</a>
+                                    @else
+                                        <a class="nav-link" href="{{ route('reports.index') }}">{{ __('All Reports') }}</a>
+                                    @endif
+                                </div>
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                    @if(auth()->user()->hasRole('admin'))
+                                        <a class="nav-link" href="{{ route('admin.reports.create') }}">{{ __('Create Report') }}</a>
+                                    @endif
+                                </div>         
                             </div>
                         </li>
+
                         <!-- End Dropdown for Reports -->
                     </ul>
 
