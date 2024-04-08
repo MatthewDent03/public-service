@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ReportController as AdminReportController;
 use App\Http\Controllers\User\ReportController as UserReportController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +36,14 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::resource('/admin/reports', AdminReportController::class)->middleware(['auth'])->names('admin.reports');
+// For User Reports
+// Route::resource('/user/reports', UserReportController::class)->middleware(['auth'])->names('user.reports');
 Route::resource('/user/reports', UserReportController::class)->middleware(['auth'])->names('user.reports');
+
+// For Admin Reports
+Route::resource('/admin/reports', AdminReportController::class)->middleware(['auth'])->names('admin.reports');
+
+
 
 require __DIR__.'/auth.php';
 

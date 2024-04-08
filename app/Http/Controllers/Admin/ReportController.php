@@ -7,7 +7,9 @@ use App\Models\Report;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreReportRequest;
+
 use App\Http\Requests\UpdateReportRequest;
+use App\Http\Controllers\UserController;
 
 class ReportController extends Controller
 {
@@ -37,13 +39,42 @@ class ReportController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreReportRequest $request)
+    public function store(Request $request)
     {
-        $report = new Report();
-        $report->fill($request->validated());
-        $report->save();
+        $user = Auth::user();
+        $user->authorizeRoles('admin');
 
-        return redirect()->route('admin.reports.index')->with('success', 'Report created successfully.');
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'nearest_stop' => 'nullable',
+            'city' => 'required',
+            'incident_date' => 'required|date', // Ensure incident_date is a valid date format
+        ]);
+        
+        
+
+        // Log the request data
+       // logger($request->all());
+
+        // Create a new Doctor instance
+        $report = Report::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'nearest_stop' => $request->nearest_stop,
+            'city' => $request->city,
+            'incident_date' => $request->incident_date,
+        ]);
+
+
+
+    //     $report = new Report();
+
+    //   //  $report->fill($request->validate());
+    //     $report->save();
+        return redirect()->route('admin.reports.index');
+
+        // return redirect()->route('admin.reports.index')->with('success', 'Report created successfully.');
     }
 
     /**

@@ -7,7 +7,9 @@ use App\Models\Report;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreReportRequest;
+
 use App\Http\Requests\UpdateReportRequest;
+use App\Http\Controllers\UserController;
 
 class ReportController extends Controller
 {
@@ -39,8 +41,23 @@ class ReportController extends Controller
      */
     public function store(StoreReportRequest $request)
     {
+        $user = Auth::user();
+        $user->authorizeRoles('user');
+     
+
+        // $request->validate([
+        //     'title' => ['required', 'alpha'],
+        //     'description' => ['required', 'alpha'],
+       
+        // ]);
+        // Report::create([
+        //     'title' => $request->title,
+        //     'description' => $request->description,
+    
+        // ]);
         $report = new Report();
         $report->fill($request->validated());
+    
         $report->save();
 
         return redirect()->route('user.reports.index')->with('success', 'Report created successfully.');

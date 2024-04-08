@@ -8,6 +8,11 @@
                 <div class="card-header">{{ __('Create Report') }}</div>
 
                 <div class="card-body">
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                     <form method="POST" action="{{ route('user.reports.store') }}">
                         @csrf
 
