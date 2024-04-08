@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Private Transportation</h5>
                     <p class="card-text">Get access to our transportation services provided via private companies.</p>
-                    <a href="#" class="btn btn-primary">View Live Feed</a>
+                    <a href="#" class="btn btn-primary">View Private Schedules</a>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Live Schedule Updates</h5>
                     <p class="card-text">Get live updates about our transportation operations and scheduling.</p>
-                    <a href="/fetch-transport-data" class="btn btn-primary">View Live Feed</a>
+                    <a href="/fetch-transport-data" class="btn btn-primary">View Live Schedules</a>
                 </div>
             </div>
         </div>

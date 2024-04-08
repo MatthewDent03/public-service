@@ -37,6 +37,36 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="nearest_stop" class="form-label">{{ __('nearest_stop') }}</label>
+                            <textarea id="nearest_stop" class="form-control @error('nearest_stop') is-invalid @enderror" name="nearest_stop" rows="5" required>{{ old('nearest_stop') }}</textarea>
+                            @error('nearest_stop')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="city" class="form-label">{{ __('city') }}</label>
+                            <textarea id="city" class="form-control @error('city') is-invalid @enderror" name="city" rows="5" required>{{ old('city') }}</textarea>
+                            @error('city')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="incident_date" class="form-label">{{ __('incident_date') }}</label>
+                            <textarea id="incident_date" class="form-control @error('incident_date') is-invalid @enderror" name="incident_date" rows="5" required>{{ old('incident_date') }}</textarea>
+                            @error('incident_date')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
                             <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
                             
                             <a href="{{ route('user.reports.index') }}" class="btn btn-primary">{{ __('Cancel') }}</a>

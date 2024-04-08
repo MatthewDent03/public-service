@@ -39,29 +39,44 @@ class ReportController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreReportRequest $request)
+    public function store(Request $request)
     {
         $user = Auth::user();
         $user->authorizeRoles('user');
-     
 
-        // $request->validate([
-        //     'title' => ['required', 'alpha'],
-        //     'description' => ['required', 'alpha'],
-       
-        // ]);
-        // Report::create([
-        //     'title' => $request->title,
-        //     'description' => $request->description,
-    
-        // ]);
-        $report = new Report();
-        $report->fill($request->validated());
-    
-        $report->save();
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'nearest_stop' => 'nullable',
+            'city' => 'required',
+            'incident_date' => 'required|date', // Ensure incident_date is a valid date format
+        ]);
+        
+        
 
-        return redirect()->route('user.reports.index')->with('success', 'Report created successfully.');
+        // Log the request data
+       // logger($request->all());
+
+        // Create a new Doctor instance
+        $report = Report::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'nearest_stop' => $request->nearest_stop,
+            'city' => $request->city,
+            'incident_date' => $request->incident_date,
+        ]);
+
+
+
+    //     $report = new Report();
+
+    //   //  $report->fill($request->validate());
+    //     $report->save();
+        return redirect()->route('user.reports.index');
+
+        // return redirect()->route('admin.reports.index')->with('success', 'Report created successfully.');
     }
+
 
     /**
      * Display the specified resource.

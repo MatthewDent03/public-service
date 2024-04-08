@@ -97,13 +97,30 @@ class ReportController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateReportRequest $request, Report $report)
+    public function update(Request $request, Report $report)
     {
-        $report->fill($request->validated());
-        $report->save();
-
+        $user = Auth::user();
+        $user->authorizeRoles('admin');
+    
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'nearest_stop' => 'nullable',
+            'city' => 'required',
+            'incident_date' => 'required|date', // Ensure incident_date is a valid date format
+        ]);
+    
+        $report->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'nearest_stop' => $request->nearest_stop,
+            'city' => $request->city,
+            'incident_date' => $request->incident_date,
+        ]);
+    
         return redirect()->route('admin.reports.index')->with('success', 'Report updated successfully.');
     }
+    
 
     /**
      * Remove the specified resource from storage.
