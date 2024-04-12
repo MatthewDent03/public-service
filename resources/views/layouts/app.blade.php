@@ -74,8 +74,7 @@
                                             <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
                                         @elseif(auth()->user()->hasRole('dev'))
                                             <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
-                                            <a class="nav-link" href="{{ route('private_companies.create') }}">{{ __('All Private Companies') }}</a>
-                                            <a class="nav-link" href="{{ route('private_companies.edit') }}">{{ __('All Private Companies') }}</a>
+                                            <a class="nav-link" href="{{ route('private_companies.create') }}">{{ __('Create Private Companies') }}</a>
                                         @else
                                             <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
                                         @endif

@@ -24,5 +24,10 @@ class RoleSeeder extends Seeder
         $role_user->name = 'user';
         $role_user->description = 'An ordinary user';
         $role_user->save();
+
+        $role_dev = new Role();
+        $role_dev->name = 'dev';
+        $role_dev->description = 'A company developer';
+        $role_dev->save();
     }
 }
