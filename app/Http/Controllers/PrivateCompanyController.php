@@ -28,7 +28,7 @@ class PrivateCompanyController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $user->authorizeRoles('admin');
+        $user->authorizeRoles('dev');
         return view('private_companies.create');
     }
 
@@ -39,9 +39,9 @@ class PrivateCompanyController extends Controller
     {
         $user = Auth::user();
 
-        // Check if user has admin role
-        if ($user->hasRole('admin')) {
-            // If admin, proceed with storing data
+        // Check if user has dev role
+        if ($user->hasRole('dev')) {
+            // If dev, proceed with storing data
             $request->validate([
                 'company_name' => 'required',
                 'company_email' => 'required',
@@ -56,7 +56,7 @@ class PrivateCompanyController extends Controller
 
             return redirect()->route('private_companies.index')->with('success', 'Private Company created successfully.');
         } else {
-            // If not admin, redirect to index
+            // If not dev, redirect to index
             return redirect()->route('private_companies.index')->with('error', 'You do not have permission to create companies.');
         }
     }
@@ -87,9 +87,9 @@ public function update(Request $request, PrivateCompany $privateCompany)
     {
         $user = Auth::user();
 
-        // Check if user has admin role
-        if ($user->hasRole('admin')) {
-            // If admin, proceed with updating data
+        // Check if user has dev role
+        if ($user->hasRole('dev')) {
+            // If dev, proceed with updating data
             $request->validate([
                 'company_name' => 'required',
                 'company_email' => 'required',
@@ -105,7 +105,7 @@ public function update(Request $request, PrivateCompany $privateCompany)
 
             return redirect()->route('private_companies.index')->with('success', 'Private Company updated successfully.');
         } else {
-            // If not admin, redirect to index
+            // If not dev, redirect to index
             return redirect()->route('private_companies.index')->with('error', 'You do not have permission to edit company details.');
         }
     }
@@ -117,13 +117,13 @@ public function update(Request $request, PrivateCompany $privateCompany)
     {
         $user = Auth::user();
 
-        // Check if user has admin role
-        if ($user->hasRole('admin')) {
-            // If admin, proceed with deleting data
+        // Check if user has dev role
+        if ($user->hasRole('dev')) {
+            // If dev, proceed with deleting data
             $privateCompany->delete();
             return redirect()->route('private_companies.index')->with('success', 'Private Company deleted successfully.');
         } else {
-            // If not admin, redirect to index
+            // If not dev, redirect to index
             return redirect()->route('private_companies.index')->with('error', 'You do not have permission to delete companies.');
     }
     }

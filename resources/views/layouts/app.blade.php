@@ -55,8 +55,6 @@
                                         @elseif(auth()->user()->hasRole('user'))
                                             <a class="nav-link" href="{{ route('user.reports.index') }}">{{ __('All Reports') }}</a>
                                             <a class="nav-link" href="{{ route('user.reports.create') }}">{{ __('Create Report') }}</a>
-                                        @else
-                                            <a class="nav-link" href="{{ route('reports.index') }}">{{ __('All Reports') }}</a>
                                         @endif
                                     @endauth
                                 </div>
@@ -72,9 +70,12 @@
                                     @auth
                                         @if(auth()->user()->hasRole('admin'))
                                             <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
-                                            <a class="nav-link" href="{{ route('private_companies.create') }}">{{ __('Create Private Company') }}</a>
                                         @elseif(auth()->user()->hasRole('user'))
                                             <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
+                                        @elseif(auth()->user()->hasRole('dev'))
+                                            <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
+                                            <a class="nav-link" href="{{ route('private_companies.create') }}">{{ __('All Private Companies') }}</a>
+                                            <a class="nav-link" href="{{ route('private_companies.edit') }}">{{ __('All Private Companies') }}</a>
                                         @else
                                             <a class="nav-link" href="{{ route('private_companies.index') }}">{{ __('All Private Companies') }}</a>
                                         @endif
