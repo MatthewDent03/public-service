@@ -45,10 +45,7 @@
                     </tbody>
                 </table>
                 <!-- Pagination Links -->
-                <div class="pagination justify-content-center">
-                    {{ $routes->links() }}
-                </div>
-
+                {{ $routes->links() }}
             </div>
         </div>
     </div>
