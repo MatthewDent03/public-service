@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dev;
 
 use App\Http\Controllers\Controller;
 use App\Models\Route;
+use App\Models\PrivateCompany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
@@ -124,7 +125,6 @@ class RouteController extends Controller
      */
     public function destroy(route $route)
     {
-        $route->delete();
 
         return redirect()->route('dev.routes.index')->with('success', 'route deleted successfully.');
     }

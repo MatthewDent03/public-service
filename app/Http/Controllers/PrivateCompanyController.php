@@ -7,6 +7,7 @@ use App\Http\Requests\StorePrivateCompanyRequest;
 use App\Http\Requests\UpdatePrivateCompanyRequest;
 use App\Models\PrivateCompany;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Route;
 
 
 class PrivateCompanyController extends Controller

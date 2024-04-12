@@ -13,6 +13,10 @@ class PrivateCompanySeeder extends Seeder
      */
     public function run(): void
     {
-        PrivateCompany::factory(3)->create();
+        PrivateCompany::factory()
+        ->times(3)
+        ->hasRoutes(4)
+        ->create();
+
     }
 }

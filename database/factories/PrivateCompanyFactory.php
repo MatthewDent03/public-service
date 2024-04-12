@@ -20,7 +20,7 @@ class PrivateCompanyFactory extends Factory
         return [
             'company_name' => fake()->sentence,
             'company_email' => fake()->paragraph,
-            'company_number' => fake()->word,
+            'company_number' => fake()->randomNumber(9, true),
             'created_at' => now(),
             'updated_at' => now(),
         ];

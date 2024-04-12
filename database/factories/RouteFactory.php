@@ -14,7 +14,8 @@ class RouteFactory extends Factory
             'end_location' => $this->faker->address,
             'estimated_departure' => $this->faker->time(),
             'estimated_arrival' => $this->faker->time(),
-            'journey_route' => $this->faker->numBetween(10,75),
+            'journey_route' => $this->faker->text,
+            'private_company_id' => $this->faker->numberBetween(1, 3),
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Route;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\privateCompany;
 
 class Route extends Model
 {
