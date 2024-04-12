@@ -18,6 +18,7 @@ class PrivateCompanyController extends Controller
     public function index()
     {
         $privateCompanies = PrivateCompany::paginate(10); // You can adjust the number per page as needed
+        $privateCompanies = PrivateCompany::with('routes')->get();
         return view('private_companies.index', ['privateCompanies' => $privateCompanies]);
     }
     

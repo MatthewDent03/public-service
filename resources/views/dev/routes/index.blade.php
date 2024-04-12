@@ -25,6 +25,7 @@
                         <td>{{ $route->estimated_departure }}</td>
                         <td>{{ $route->estimated_arrival }}</td>
                         <td>{{ $route->journey_route }}</td>
+                        <td>{{ $route->private_company_id }}
                         <td>
                             <a href="{{ route('dev.routes.show', $route->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>
                             <a href="{{ route('dev.routes.edit', $route->id) }}" class="btn btn-primary btn-sm">{{ __('Edit') }}</a>
@@ -44,7 +45,10 @@
                     </tbody>
                 </table>
                 <!-- Pagination Links -->
-                {{ $routes->links() }}
+                <div class="pagination justify-content-center">
+                    {{ $routes->links() }}
+                </div>
+
             </div>
         </div>
     </div>
