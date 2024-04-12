@@ -7,6 +7,10 @@ use App\Http\Controllers\User\ReportController as UserReportController;
 use App\Http\Controllers\PrivateCompanyController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\RouteController as AdminRouteController;
+use App\Http\Controllers\User\RouteController as UserRouteController;
+use App\Http\Controllers\Dev\RouteController as DevRouteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +49,12 @@ Route::resource('/user/reports', UserReportController::class)->middleware(['auth
 Route::resource('/admin/reports', AdminReportController::class)->middleware(['auth'])->names('admin.reports');
 
 Route::resource('private_companies', PrivateCompanyController::class)->names('private_companies');
+
+Route::resource('/admin/routes', AdminRouteController::class)->middleware(['auth'])->names('admin.routes');
+Route::resource('/user/routes', UserRouteController::class)->middleware(['auth'])->names('user.routes');
+Route::resource('/dev/routes', DevRouteController::class)->middleware(['auth'])->names('dev.routes');
+
+
 
 Route::resource('routes', RouteController::class)->names('routes');
 

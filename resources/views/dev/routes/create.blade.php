@@ -13,7 +13,7 @@
                             {{ session('success') }}
                         </div>
                     @endif
-                    <form method="POST" action="{{ route('routes.store') }}">
+                    <form method="POST" action="{{ route('dev.routes.store') }}">
                         @csrf
 
                         <div class="mb-3">
@@ -68,7 +68,7 @@
 
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
-                            <a href="{{ route('routes.index') }}" class="btn btn-primary">{{ __('Cancel') }}</a>
+                            <a href="{{ route('dev.routes.index') }}" class="btn btn-primary">{{ __('Cancel') }}</a>
                         </div>
                     </form>
                 </div>

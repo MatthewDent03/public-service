@@ -27,7 +27,7 @@
                         <strong>Journey Route:</strong> {{ $route->journey_route }}
                     </div>
                     <!-- Back Button -->
-                    <a href="{{ route('routes.index') }}" class="btn btn-primary">{{ __('Back') }}</a>
+                    <a href="{{ route('dev.routes.index') }}" class="btn btn-primary">{{ __('Back') }}</a>
                 </div>
             </div>
         </div>

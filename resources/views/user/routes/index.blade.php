@@ -26,15 +26,7 @@
                         <td>{{ $route->estimated_arrival }}</td>
                         <td>{{ $route->journey_route }}</td>
                         <td>
-                            <a href="{{ route('routes.show', $route->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>
-                            <a href="{{ route('routes.edit', $route->id) }}" class="btn btn-primary btn-sm">{{ __('Edit') }}</a>
-                            <!-- Add Delete Button with Form -->
-                            <form action="{{ route('routes.destroy', $route->id) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to delete this route?')">{{ __('Delete') }}</button>
-                            </form>
-                        </td>
+                            <a href="{{ route('user.routes.show', $route->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>                        </td>
                         </tr>
                         @empty
                         <tr>

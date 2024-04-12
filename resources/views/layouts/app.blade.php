@@ -82,6 +82,29 @@
                                 </div>
                             </div>
                         </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPrivateRoutes" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Private Routes
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPrivateRoutes">
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                    @auth
+                                        @if(auth()->user()->hasRole('admin'))
+                                            <a class="nav-link" href="{{ route('admin.routes.index') }}">{{ __('All Private Routes') }}</a>
+                                        @elseif(auth()->user()->hasRole('user'))
+                                            <a class="nav-link" href="{{ route('user.routes.index') }}">{{ __('All Private Routes') }}</a>
+                                        @elseif(auth()->user()->hasRole('dev'))
+                                            <a class="nav-link" href="{{ route('dev.routes.index') }}">{{ __('All Private Routes') }}</a>
+                                            <a class="nav-link" href="{{ route('dev.routes.create') }}">{{ __('Create Private Routes') }}</a>
+                                        @else
+                                            <a class="nav-link" href="{{ route('routes.index') }}">{{ __('All Private Routes') }}</a>
+                                        @endif
+                                    @endauth
+                                </div>
+                            </div>
+                        </li>
                         <!-- End Dropdown for Reports -->
                     </ul>
 
