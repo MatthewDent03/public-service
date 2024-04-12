@@ -15,7 +15,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Reports</h5>
                     <p class="card-text">View detailed reports about our transportation services and reviews.</p>
-                    <a href="#" class="btn btn-primary">View Reports</a>
+                    <a href="{{ route('user.reports.index') }}" class="btn btn-primary">View Reports</a>
+                    <a href="{{ route('admin.reports.index') }}" class="btn btn-primary">Manage Reports</a>
                 </div>
             </div>
         </div>
@@ -24,7 +25,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Private Transportation</h5>
                     <p class="card-text">Get access to our transportation services provided via private companies.</p>
-                    <a href="#" class="btn btn-primary">View Private Schedules</a>
+                    <a href="{{ route('private_companies.index') }}" class="btn btn-primary">View Private Schedules</a>
                 </div>
             </div>
         </div>
