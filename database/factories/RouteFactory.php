@@ -10,11 +10,11 @@ class RouteFactory extends Factory
     public function definition()
     {
         return [
-            'start_location' => $this->faker->word,
-            'end_location' => $this->faker->word,
+            'start_location' => $this->faker->address,
+            'end_location' => $this->faker->address,
             'estimated_departure' => $this->faker->time(),
             'estimated_arrival' => $this->faker->time(),
-            'journey_route' => $this->faker->word,
+            'journey_route' => $this->faker->sentence,
             'created_at' => now(),
             'updated_at' => now(),
         ];

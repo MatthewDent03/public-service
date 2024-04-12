@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
     {
         $role_admin = Role::where('name', 'admin')->first();
         $role_user = Role::where('name', 'user')->first();
+        $role_dev = Role::where('name', 'dev')->first();
 
         $admin = new User();
         $admin->name = 'Matthew Dent';
@@ -34,5 +35,13 @@ class UserSeeder extends Seeder
         $user->save();
 
         $user->roles()->attach($role_user);
+
+        $dev = new User();
+        $dev->name = 'Jack Jackie';
+        $dev->email = 'jack@laravel.com';
+        $dev->password = Hash::make('password');
+        $dev->save();
+
+        $dev->roles()->attach($role_dev);
     }
 }
