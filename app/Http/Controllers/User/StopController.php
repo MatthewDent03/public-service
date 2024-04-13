@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Stop;
@@ -17,10 +17,10 @@ class StopController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $user->authorizeRoles('admin');
+        $user->authorizeRoles('user');
 
         $stops = Stop::paginate(10);
-        return view('admin.stops.index')->with('stops', $stops);
+        return view('user.stops.index')->with('stops', $stops);
     }
 
     /**
@@ -28,7 +28,7 @@ class StopController extends Controller
      */
     public function show(Stop $stop)
     {
-        return view('admin.stops.show')->with('stop', $stop);
+        return view('user.stops.show')->with('stop', $stop);
     }
     
     

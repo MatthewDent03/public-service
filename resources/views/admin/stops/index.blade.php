@@ -23,7 +23,7 @@
                         <td>{{ $stop->estimated_arrival_time }}</td>
 
                         <td>
-                            <a href="{{ stop('admin.stops.show', $stop->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>                        </td>
+                            <a href="{{ route('admin.stops.show', $stop->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>                        </td>
                         </tr>
                         @empty
                         <tr>

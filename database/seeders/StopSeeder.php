@@ -15,7 +15,7 @@ class StopSeeder extends Seeder
      */
     public function run(): void
     {
-        Stop::factory(3)->create();
+        Stop::factory(75)->create();
 
         foreach(Route::all() as $route){
             $stops = Stop::inRandomOrder()->take(rand(1,3))->pluck('id');
