@@ -18,9 +18,9 @@ class StopFactory extends Factory
     public function definition(): array
     {
         return [
-            'location_name' => fake()->word,
-            'number' => fake()->word,
-            'estimated_arrival_time' => fake()->time(),
+            'location_name' => $this->faker->word,
+            'number' => $this->faker->numberBetween(15, 75),
+            'estimated_arrival_time' => $this->faker->time(),
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -24,4 +24,9 @@ class Route extends Model
     {
         return $this->belongsTo(PrivateCompany::class);
     }
+
+    public function stops()
+    {
+        return $this->belongsToMany(Stop::class)->withTimestamps();
+    }
 }

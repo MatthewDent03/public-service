@@ -15,4 +15,10 @@ class Stop extends Model
         'number',
         'estimated_arrival_time',
     ];
+
+    public function routes()
+    {
+        return $this->belongsToMany(Route::class)->withTimestamps();
+    }
+
 }
