@@ -63,6 +63,21 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="private_company_id" class="form-label">{{ __('Private Company') }}</label>
+                            <select id="private_company_id" class="form-select @error('private_company_id') is-invalid @enderror" name="private_company_id" required>
+                                <option value="">Select Private Company</option>
+                                @foreach($privateCompanies as $company)
+                                    <option value="{{ $company->id }}" {{ $company->id == $route->private_company_id ? 'selected' : '' }}>{{ $company->company_number }} - {{ $company->company_name }}</option>
+                                @endforeach
+                            </select>
+                            @error('private_company_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
                             <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
                             <a href="{{ route('dev.routes.index') }}" class="btn btn-secondary">{{ __('Cancel') }}</a>
                         </div>

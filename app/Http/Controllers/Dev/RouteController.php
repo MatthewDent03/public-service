@@ -93,7 +93,9 @@ class RouteController extends Controller
      */
     public function edit(route $route)
     {
-        return view('dev.routes.edit')->with('route', $route);
+        $privateCompanies = PrivateCompany::all(); // Retrieve all private companies
+
+        return view('dev.routes.edit', compact('route', 'privateCompanies'));
     }
 
     /**
@@ -110,6 +112,8 @@ class RouteController extends Controller
             'estimated_departure' => 'required',
             'estimated_arrival' => 'required',
             'journey_route' => 'required', // Ensure incident_date is a valid date format
+            'private_company_id' => 'required', // Add any additional validation rules as needed
+
         ]);
     
         $route->update([
@@ -118,6 +122,8 @@ class RouteController extends Controller
             'estimated_departure' => $request->estimated_departure,
             'estimated_arrival' => $request->estimated_arrival,
             'journey_route' => $request->journey_route,
+            'private_company_id' => $request->private_company_id, // Assuming you have this value available
+
         ]);
     
         return redirect()->route('dev.routes.index')->with('success', 'route updated successfully.');
