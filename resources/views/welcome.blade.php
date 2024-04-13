@@ -51,6 +51,21 @@
                         <!-- Render login/register buttons or any other alternative -->
                     @endif
 
+                    @if(auth()->check())
+                        @if(auth()->user()->hasRole('admin'))
+                            <a href="{{ route('admin.stops.index') }}" class="btn btn-primary">View Route Stops</a>
+                        @elseif(auth()->user()->hasRole('user'))
+                            <a href="{{ route('user.stops.index') }}" class="btn btn-primary">View Route Stops</a>
+                        @elseif(auth()->user()->hasRole('dev'))
+                            <a href="{{ route('dev.stops.index') }}" class="btn btn-primary">View Route Stops</a>
+                        @else
+                            <a href="{{ route('stops.index') }}" class="btn btn-primary">View Route Stops</a>
+                        @endif
+                        <!-- <a href="{{ route('private_companies.index') }}" class="btn btn-primary">View Private Schedules</a> -->
+                    @else
+                        <!-- Render login/register buttons or any other alternative -->
+                    @endif
+
                     <a href="{{ route('private_companies.index') }}" class="btn btn-primary">View Private Companies</a>
                 </div>
             </div>

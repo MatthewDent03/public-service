@@ -20,7 +20,7 @@ return new class extends Migration
                 $table->text('estimated_arrival');
                 $table->text('journey_route');
                 $table->unsignedBigInteger('private_company_id');
-                $table->foreign('private_company_id')->reference('id')->on('private_companies')->onUpdate('cascade')->onDelete('restrict');
+                $table->foreign('private_company_id')->references('id')->on('private_companies')->onUpdate('cascade')->onDelete('restrict');
                 $table->timestamps();
             });
         }
