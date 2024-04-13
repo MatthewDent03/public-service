@@ -28,9 +28,16 @@
                     </div>
 
                     <div>
-                        <strong>Private Company Id:</strong><a href="{{ route('private_companies.show', $route->private_company_id) }}">{{ $route->private_company_id }}</a></td>
+                        <strong>Private Company Id:</strong><br><a href="{{ route('private_companies.show', $route->private_company_id) }}">{{ $route->private_company_id }}</a></td>
                     </div>
-                    
+
+                    @foreach($route->stops as $stop)
+                        <div>
+                            <strong>Stops: </strong><a href="{{ route('admin.stops.show', ['stop' => $stop->id]) }}">{{ $stop->number }}</a>
+                        </div>
+                    @endforeach
+
+
                     <!-- Back Button -->
                     <a href="{{ route('admin.routes.index') }}" class="btn btn-primary">{{ __('Back') }}</a>
                 </div>

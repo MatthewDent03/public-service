@@ -14,6 +14,7 @@
                         <th scope="col">Estimated Arrival</th>
                         <th scope="col">Journey Route</th>
                         <th scope="col">Private Company Id</th>
+                        <th scope="col">Stop Number</th>
                         <th scope="col">Actions</th>
                     </tr>
                     </thead>
@@ -27,7 +28,12 @@
                         <td>{{ $route->estimated_arrival }}</td>
                         <td>{{ $route->journey_route }}</td>
                         <td><a href="{{ route('private_companies.show', $route->private_company_id) }}">{{ $route->private_company_id }}</a></td>
-
+                        <td>    
+                            @foreach($route->stops as $stop)
+                                <a href="{{ route('admin.stops.show', ['stop' => $stop->id]) }}">{{ $stop->number }}</a>
+                            @endforeach
+                        </td>
+                        
                         <td>
                             <a href="{{ route('admin.routes.show', $route->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>                        </td>
                         </tr>
