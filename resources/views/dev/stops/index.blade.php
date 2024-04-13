@@ -21,10 +21,16 @@
                         <td>{{ $stop->location_name }}</td>
                         <td>{{ $stop->number }}</td>
                         <td>{{ $stop->estimated_arrival_time }}</td>
-
                         <td>
-                            <a href="{{ route('dev.stops.show', $stop->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>                        </td>
-                        </tr>
+                            <a href="{{ route('dev.stops.show', $stop->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>
+                            <a href="{{ route('dev.stops.edit', $stop->id) }}" class="btn btn-primary btn-sm">{{ __('Edit') }}</a>
+                            <!-- Add Delete Button with Form -->
+                            <form action="{{ route('dev.stops.destroy', $stop->id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to delete this stop?')">{{ __('Delete') }}</button>
+                            </form>
+                        </td>
                         @empty
                         <tr>
                             <td colspan="4">{{ __('No stops found.') }}</td>

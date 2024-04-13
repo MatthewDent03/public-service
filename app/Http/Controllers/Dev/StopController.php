@@ -49,7 +49,7 @@ class StopController extends Controller
         $request->validate([
             'location_name' => 'required',
             'number' => 'required',
-            'estimated_arrival_time' => 'nullable',
+            'estimated_arrival_time' => 'required',
         ]);
         
         
@@ -103,7 +103,7 @@ class StopController extends Controller
         $request->validate([
             'location_name' => 'required',
             'number' => 'required',
-            'estimated_arrival_time' => 'nullable',t
+            'estimated_arrival_time' => 'required',
         ]);
     
         $stop->update([

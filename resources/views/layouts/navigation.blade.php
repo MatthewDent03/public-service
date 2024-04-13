@@ -81,17 +81,18 @@
     </div>
 
     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    @if(auth()->user()->hasRole('admin'))
-        <a class="nav-link" href="{{ route('admin.stops.index') }}">{{ __('All stops') }}</a>
-    @elseif(auth()->user()->hasRole('user'))
-        <a class="nav-link" href="{{ route('user.stops.index') }}">{{ __('All Stops') }}</a>
-    @elseif(auth()->user()->hasRole('user'))
-        <a class="nav-link" href="{{ route('dev.stops.index') }}">{{ __('All Stops') }}</a>
-    @else
-        <a class="nav-link" href="{{ route('stops.index') }}">{{ __('All Stops') }}</a>
-    @endif
-
+        @if(auth()->user()->hasRole('admin'))
+            <a class="nav-link" href="{{ route('admin.stops.index') }}">{{ __('All stops') }}</a>
+        @elseif(auth()->user()->hasRole('user'))
+            <a class="nav-link" href="{{ route('user.stops.index') }}">{{ __('All Stops') }}</a>
+        @elseif(auth()->user()->hasRole('dev'))
+            <a class="nav-link" href="{{ route('dev.stops.index') }}">{{ __('All Stops') }}</a>
+            <a class="nav-link" href="{{ route('dev.stops.create') }}">{{ __('Create Stops') }}</a>
+        @else
+            <a class="nav-link" href="{{ route('stops.index') }}">{{ __('All Stops') }}</a>
+        @endif
     </div>
+
 
     <!-- Responsive Settings Options -->
     <div class="pt-4 pb-1 border-t border-gray-200">

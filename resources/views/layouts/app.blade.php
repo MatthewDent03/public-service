@@ -119,6 +119,7 @@
                                             <a class="nav-link" href="{{ route('user.stops.index') }}">{{ __('All Route Stops') }}</a>
                                         @elseif(auth()->user()->hasRole('dev'))
                                             <a class="nav-link" href="{{ route('dev.stops.index') }}">{{ __('All Route Stops') }}</a>
+                                            <a class="nav-link" href="{{ route('dev.stops.create') }}">{{ __('Create Stops') }}</a>
                                         @else
                                             <a class="nav-link" href="{{ route('stops.index') }}">{{ __('All Route Stops') }}</a>
                                         @endif
