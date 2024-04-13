@@ -15,8 +15,18 @@
                 <div class="card-body">
                     <h5 class="card-title">Reports</h5>
                     <p class="card-text">View detailed reports about our transportation services and reviews.</p>
-                    <a href="{{ route('user.reports.index') }}" class="btn btn-primary">View Reports</a>
-                    <a href="{{ route('admin.reports.index') }}" class="btn btn-primary">Manage Reports</a>
+                    
+                    @if(auth()->check())
+                        @if(auth()->user()->hasRole('admin'))
+                            <a href="{{ route('admin.reports.index') }}" class="btn btn-primary">View Reports</a>
+                        @elseif(auth()->user()->hasRole('user'))
+                            <a href="{{ route('user.reports.index') }}" class="btn btn-primary">View Reports</a>
+                            <a href="{{ route('user.reports.create') }}" class="btn btn-primary">Create Reports</a>
+                        @elseif(auth()->user()->hasRole('dev'))
+                        @else
+                        @endif
+                    @else
+                    @endif
                 </div>
             </div>
         </div>
@@ -25,7 +35,23 @@
                 <div class="card-body">
                     <h5 class="card-title">Private Transportation</h5>
                     <p class="card-text">Get access to our transportation services provided via private companies.</p>
-                    <a href="{{ route('private_companies.index') }}" class="btn btn-primary">View Private Schedules</a>
+                    
+                    @if(auth()->check())
+                        @if(auth()->user()->hasRole('admin'))
+                            <a href="{{ route('admin.routes.index') }}" class="btn btn-primary">View Private Routes</a>
+                        @elseif(auth()->user()->hasRole('user'))
+                            <a href="{{ route('user.routes.index') }}" class="btn btn-primary">View Private Routes</a>
+                        @elseif(auth()->user()->hasRole('dev'))
+                            <a href="{{ route('dev.routes.index') }}" class="btn btn-primary">View Private Routes</a>
+                        @else
+                            <a href="{{ route('routes.index') }}" class="btn btn-primary">View Private Routes</a>
+                        @endif
+                        <!-- <a href="{{ route('private_companies.index') }}" class="btn btn-primary">View Private Schedules</a> -->
+                    @else
+                        <!-- Render login/register buttons or any other alternative -->
+                    @endif
+
+                    <a href="{{ route('private_companies.index') }}" class="btn btn-primary">View Private Companies</a>
                 </div>
             </div>
         </div>
