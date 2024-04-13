@@ -17,6 +17,7 @@ class Route extends Model
         'estimated_departure',
         'estimated_arrival',
         'journey_route',
+        'private_company_id',
     ];
 
     public function privateCompany()

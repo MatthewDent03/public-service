@@ -66,6 +66,10 @@
                             @enderror
                         </div>
 
+                        <div class="mt-6">
+                        <x-select-company name="private_company_id" :privateCompanies="$privateCompanies" :selected="old('private_company_id')"/>
+                        </div>
+
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
                             <a href="{{ route('dev.routes.index') }}" class="btn btn-primary">{{ __('Cancel') }}</a>
