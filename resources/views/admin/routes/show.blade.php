@@ -26,6 +26,11 @@
                     <div class="mb-3">
                         <strong>Journey Route:</strong> {{ $route->journey_route }}
                     </div>
+
+                    <div>
+                        <strong>Private Company Id:</strong><a href="{{ route('private_companies.show', $route->private_company_id) }}">{{ $route->private_company_id }}</a></td>
+                    </div>
+                    
                     <!-- Back Button -->
                     <a href="{{ route('admin.routes.index') }}" class="btn btn-primary">{{ __('Back') }}</a>
                 </div>
