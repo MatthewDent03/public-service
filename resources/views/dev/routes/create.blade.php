@@ -67,8 +67,20 @@
                         </div>
 
                         <div class="mt-6">
-                        <x-select-company name="private_company_id" :privateCompanies="$privateCompanies" :selected="old('private_company_id')"/>
+                            <label for="private_company_id" class="form-label">{{ __('Private Company') }}</label>
+                            <select id="private_company_id" class="form-select @error('private_company_id') is-invalid @enderror" name="private_company_id" required>
+                                <option value="">Select Private Company</option>
+                                @foreach($privateCompanies as $company)
+                                    <option value="{{ $company->id }}">{{ $company->company_number }} - {{ $company->company_name }}</option>
+                                @endforeach
+                            </select>
+                            @error('private_company_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
+
 
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>

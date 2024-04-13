@@ -30,7 +30,7 @@ class RouteController extends Controller
     {
         $user = Auth::user();
         $user->authorizeRoles('dev');
-        
+
         $privateCompanies = PrivateCompany::all();
         return view('dev.routes.create', ['privateCompanies' => $privateCompanies]);
     }
@@ -129,6 +129,8 @@ class RouteController extends Controller
      */
     public function destroy(route $route)
     {
+
+        $route->delete();
 
         return redirect()->route('dev.routes.index')->with('success', 'route deleted successfully.');
     }
