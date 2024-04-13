@@ -83,11 +83,13 @@
     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
     @if(auth()->user()->hasRole('admin'))
         <a class="nav-link" href="{{ route('admin.stops.index') }}">{{ __('All stops') }}</a>
-    <!-- @elseif(auth()->user()->hasRole('user'))
-        <a class="nav-link" href="{{ route('user.routes.index') }}">{{ __('All routes') }}</a>
+    @elseif(auth()->user()->hasRole('user'))
+        <a class="nav-link" href="{{ route('user.stops.index') }}">{{ __('All Stops') }}</a>
+    @elseif(auth()->user()->hasRole('user'))
+        <a class="nav-link" href="{{ route('dev.stops.index') }}">{{ __('All Stops') }}</a>
     @else
-        <a class="nav-link" href="{{ route('routes.index') }}">{{ __('All routes') }}</a>
-    @endif -->
+        <a class="nav-link" href="{{ route('stops.index') }}">{{ __('All Stops') }}</a>
+    @endif
 
     </div>
 

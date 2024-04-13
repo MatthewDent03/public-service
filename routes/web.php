@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\RouteController as AdminRouteController;
 use App\Http\Controllers\User\RouteController as UserRouteController;
 use App\Http\Controllers\Dev\RouteController as DevRouteController;
 use App\Http\Controllers\Admin\StopController as AdminStopController;
+use App\Http\Controllers\User\StopController as UserStopController;
+use App\Http\Controllers\Dev\StopController as DevStopController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +58,8 @@ Route::resource('/user/routes', UserRouteController::class)->middleware(['auth']
 Route::resource('/dev/routes', DevRouteController::class)->middleware(['auth'])->names('dev.routes');
 
 Route::resource('/admin/stops', AdminStopController::class)->middleware(['auth'])->names('admin.stops');
-
+Route::resource('/user/stops', UserStopController::class)->middleware(['auth'])->names('user.stops');
+Route::resource('/dev/stops', DevStopController::class)->middleware(['auth'])->names('dev.stops');
 
 Route::resource('routes', RouteController::class)->names('routes');
 

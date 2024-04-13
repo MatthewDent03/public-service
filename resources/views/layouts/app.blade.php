@@ -115,14 +115,13 @@
                                     @auth
                                         @if(auth()->user()->hasRole('admin'))
                                             <a class="nav-link" href="{{ route('admin.stops.index') }}">{{ __('All Route Stops') }}</a>
-                                        <!-- @elseif(auth()->user()->hasRole('user'))
-                                            <a class="nav-link" href="{{ route('user.routes.index') }}">{{ __('All Private Routes') }}</a>
+                                        @elseif(auth()->user()->hasRole('user'))
+                                            <a class="nav-link" href="{{ route('user.stops.index') }}">{{ __('All Route Stops') }}</a>
                                         @elseif(auth()->user()->hasRole('dev'))
-                                            <a class="nav-link" href="{{ route('dev.routes.index') }}">{{ __('All Private Routes') }}</a>
-                                            <a class="nav-link" href="{{ route('dev.routes.create') }}">{{ __('Create Private Routes') }}</a>
+                                            <a class="nav-link" href="{{ route('dev.stops.index') }}">{{ __('All Route Stops') }}</a>
                                         @else
-                                            <a class="nav-link" href="{{ route('routes.index') }}">{{ __('All Private Routes') }}</a>
-                                        @endif -->
+                                            <a class="nav-link" href="{{ route('stops.index') }}">{{ __('All Route Stops') }}</a>
+                                        @endif
                                     @endauth
                                 </div>
                             </div>
