@@ -63,6 +63,9 @@ Route::resource('/dev/stops', DevStopController::class)->middleware(['auth'])->n
 
 Route::resource('routes', RouteController::class)->names('routes');
 
+Route::post('/save-bookmark', 'RouteController@saveBookMark')->name('save.bookmark');
+
+
 require __DIR__.'/auth.php';
 
 Auth::routes();
