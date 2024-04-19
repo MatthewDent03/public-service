@@ -4,6 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
+            <!-- Add this link in your HTML -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
             <table class="table">
                 <thead>
                     <tr>
@@ -16,6 +19,7 @@
                         <th scope="col">Private Company Id</th>
                         <th scope="col">Stop Number</th>
                         <th scope="col">Actions</th>
+                        <th scope="col">Bookmark</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,6 +40,13 @@
 
                         <td>
                             <a href="{{ route('user.routes.show', $route->id) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>                        </td>
+                        <td>
+                        <div>
+                            <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+                        </div>
+
+
+                        </td>
                         </tr>
                         @empty
                         <tr>
@@ -51,3 +62,4 @@
     </div>
 </div>
 @endsection
+
