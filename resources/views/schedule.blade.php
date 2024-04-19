@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<!-- This file contains the API pulled from the NTA website, it contains specified fields that are updated regularly through the API systems, they are called through the controller routing 
+as the controller contains the API key and formatting. The table in which the details of fields are under is the entity and trip_update -->
 @section('content')
     <div class="container">
         <h1 class="mt-5 mb-4">Schedule Information</h1>

@@ -1,4 +1,5 @@
 <?php
+// creating the migration table to apply the fields to the table and fill them with fake data, they are then dropping the table when required
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -21,7 +22,7 @@ return new class extends Migration
                 $table->text('journey_route');
                 $table->unsignedBigInteger('private_company_id');
                 $table->foreign('private_company_id')->references('id')->on('private_companies')->onUpdate('cascade')->onDelete('restrict');
-                $table->timestamps();
+                $table->timestamps(); //creating a foreign key and the foreign key restraint to create a relationship between the tables
             });
         }
     }

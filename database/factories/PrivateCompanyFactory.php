@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+//creating a factory to create the private companies and setting the blueprint that each company will follow for fields adn data types
 use App\Models\PrivateCompany;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

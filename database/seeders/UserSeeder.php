@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+//Creating a seeder for the factories to run and fill the tables with fake data a specified amount of times
 
 class UserSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
+    {   //seeding the database with specified user profiles assigned specified roles to allow for testing to login and iterate testing
         $role_admin = Role::where('name', 'admin')->first();
         $role_user = Role::where('name', 'user')->first();
         $role_dev = Role::where('name', 'dev')->first();

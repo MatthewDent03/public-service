@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+//creating a factory to create the stops and setting the blueprint that each stop will follow for fields adn data types
 use App\Models\Stop;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

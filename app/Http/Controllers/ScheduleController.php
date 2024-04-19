@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class ScheduleController extends Controller
-{
+{   //initiating a controller with imported controllers and functions to call an API and assign the api key for usage, this is then routed to the views with data and allows for constant updating of API data field values.
     public function fetchDataFromNTAApi()
     {
         // Make the API request

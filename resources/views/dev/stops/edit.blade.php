@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<!-- this code imports and extends layouts to create a form for editing previously created stops, their old values are displayed in the fields and can be edited, there are routing buttons and linkage
+to the CRUD functionality, it specifies the role of the user to avoid incorrect redirection -->
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<!-- Creating a card that displays the fields according to the id of the reports and has linkage and redirects to the other pages of this topic, they are stored in card divs along with titles-->
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

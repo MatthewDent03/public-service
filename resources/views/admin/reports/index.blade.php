@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<!-- this displays all the reports that have been submitted on a page that has pagination to allow for organised page layout, they are displayed in a table and contain routing and linkage
+to allow users to be redirected correctly and access content according to their role type -->
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

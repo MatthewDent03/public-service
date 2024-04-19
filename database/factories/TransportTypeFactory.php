@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+//creating a factory to create the transport type and setting the blueprint that each transport type will follow for fields adn data types
 use App\Models\TransportType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

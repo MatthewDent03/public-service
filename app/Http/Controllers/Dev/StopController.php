@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Dev;
+//imports all controllers and models required that are extended throughout the code
 
 use App\Http\Controllers\Controller;
 use App\Models\Route;
@@ -12,6 +13,7 @@ use App\Http\Requests\StoreReportRequest;
 
 use App\Http\Requests\UpdateReportRequest;
 use App\Http\Controllers\UserController;
+//assigns routes to specified create, read, update and destroy functionality, these contains authorisation for roles and routing to views of the controller views
 
 class StopController extends Controller
 {
@@ -19,11 +21,11 @@ class StopController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {//authorises the user to be allowed this functionality usage
         $user = Auth::user();
         $user->authorizeRoles('dev');
 
-        $stops = Stop::paginate(10);
+        $stops = Stop::paginate(10);//paginates the report with pagination arrows and tabbing
         return view('dev.stops.index')->with('stops', $stops);
     }
 
@@ -45,7 +47,7 @@ class StopController extends Controller
     {
         $user = Auth::user();
         $user->authorizeRoles('dev');
-
+//validating the content inserted and submitted into the form fields
         $request->validate([
             'location_name' => 'required',
             'number' => 'required',
@@ -99,13 +101,14 @@ class StopController extends Controller
     {
         $user = Auth::user();
         $user->authorizeRoles('dev');
-    
+        //validating the new field values
         $request->validate([
             'location_name' => 'required',
             'number' => 'required',
             'estimated_arrival_time' => 'required',
         ]);
-    
+            //updating the previously inputted new field values
+
         $stop->update([
             'location_name' => $request->location_name,
             'number' => $request->number,
@@ -122,6 +125,7 @@ class StopController extends Controller
     public function destroy(Stop $stop)
     {
         $stop->delete();
+        //deleting the table and rerouting the user to a view
 
         return redirect()->route('dev.stops.index')->with('success', 'Stop deleted successfully.');
     }

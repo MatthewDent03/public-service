@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
+//imports all controllers and models required that are extended throughout the code
 
 use App\Http\Controllers\Controller;
 use App\Models\Stop;
@@ -8,6 +9,7 @@ use App\Models\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
+//assigns routes to specified read functionality, these contains authorisation for roles and routing to views of the controller views
 
 class StopController extends Controller
 {

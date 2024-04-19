@@ -1,5 +1,5 @@
 <?php
-
+//importing and extending to each controller type and assigning them temporary names for routing usage
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ReportController as AdminReportController;
@@ -35,7 +35,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+//general laravel profile routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -52,7 +52,7 @@ Route::resource('/user/reports', UserReportController::class)->middleware(['auth
 Route::resource('/admin/reports', AdminReportController::class)->middleware(['auth'])->names('admin.reports');
 
 Route::resource('private_companies', PrivateCompanyController::class)->names('private_companies');
-
+//added routing for each controller and their designated tables, these are using the temporary named controllers and the role types depending on the routing folders
 Route::resource('/admin/routes', AdminRouteController::class)->middleware(['auth'])->names('admin.routes');
 Route::resource('/user/routes', UserRouteController::class)->middleware(['auth'])->names('user.routes');
 Route::resource('/dev/routes', DevRouteController::class)->middleware(['auth'])->names('dev.routes');

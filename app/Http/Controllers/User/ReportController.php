@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\User;
+//imports all controllers and models required that are extended throughout the code
 
 use App\Http\Controllers\Controller;
 use App\Models\Report;
@@ -10,18 +11,18 @@ use App\Http\Requests\StoreReportRequest;
 
 use App\Http\Requests\UpdateReportRequest;
 use App\Http\Controllers\UserController;
-
+//assigns routes to specified create, read, update and destroy functionality, these contains authorisation for roles and routing to views of the controller views
 class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {  //authorises the user to be allowed this functionality usage
         $user = Auth::user();
         $user->authorizeRoles('user');
 
-        $reports = Report::paginate(10);
+        $reports = Report::paginate(10);  //paginates the report with pagination arrows and tabbing
         return view('user.reports.index')->with('reports', $reports);
     }
 
@@ -43,7 +44,7 @@ class ReportController extends Controller
     {
         $user = Auth::user();
         $user->authorizeRoles('user');
-
+//validating the content inserted and submitted into the form fields
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -57,7 +58,7 @@ class ReportController extends Controller
         // Log the request data
        // logger($request->all());
 
-        // Create a new Doctor instance
+        // Create a new report instance
         $report = Report::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -93,6 +94,7 @@ class ReportController extends Controller
     {
         $report->fill($request->validated());
         $report->save();
+        //deleting the table and rerouting the user to a view
 
         return redirect()->route('user.reports.index')->with('success', 'Report updated successfully.');
     }

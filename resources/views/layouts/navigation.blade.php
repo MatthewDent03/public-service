@@ -1,4 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- This file contains the navbar content being displayed at all times in the indexes and the welcome/dashboard of the website. It contains links and buttons which are displayed
+    specifically depending on the users role type through if and else statements -->
     <div class="container">
         <a class="navbar-brand" href="{{ route('dashboard') }}">
             <x-application-logo class="d-inline-block align-top" />

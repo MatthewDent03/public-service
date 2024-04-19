@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+//creating a factory to create the users and setting the blueprint that each user will follow for fields adn data types
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
-    }
+    }//creating general passive login using hash to force a password instead of a long digit alpha mixed password
 
     /**
      * Indicate that the model's email address should be unverified.

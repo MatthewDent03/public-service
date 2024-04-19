@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+//creating a factory to create the reports and setting the blueprint that each reports will follow for fields and data types
 use App\Models\Report;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+//Initialising the model with fillable data for the fields assigned to the model
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,12 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
+    //created a many to many relationship between roles and users
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role', 'user_role');
     }
-
+    //authorizes roles of the users 
     public function authorizeRoles($roles)
     {
         if(is_array($roles)){
@@ -58,7 +58,7 @@ class User extends Authenticatable
         abort(401, 'This user does not have access to this function');
     }
 
-
+    //creates a function to compare the role assigned to the user with the asked of role
     public function hasRole($role)
     {
         return null !== $this->roles()->where('name', $role)->first();

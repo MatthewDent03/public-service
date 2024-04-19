@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<!-- This file is the homepage of the website which contains the routing and links for buttons for users to access different webpages depending on their authenticated role, specific buttons are revealed to each role type -->
 @section('content')
 <div class="jumbotron jumbotron-fluid text-center">
     <div class="container">

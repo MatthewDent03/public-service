@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<!-- creating a blade file importing layouts.app and initiating a section, these hold cards that contain the reports fields which are form inputs for users to fill in, there are actions and buttons 
+added to include linkage to the reports controller functionality for CRUD, errors and old methods were added to the input form fields, these routes also specify the role of the user to route correctly -->
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<!-- creating a blade file importing layouts.app and initiating a section, these hold cards that contain the private Companies fields which are form inputs for users to fill in, there are actions and buttons 
+added to include linkage to the private Companies controller functionality for CRUD, errors and old methods were added to the input form fields, there is no specified role as the validation prevents role access -->
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+//Creating the main database seeder which holds all the other seeders to call them when seeding the database, this adds a quick manner to seeding a database through one seeder
 class DatabaseSeeder extends Seeder
 {
     /**

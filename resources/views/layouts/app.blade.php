@@ -1,4 +1,6 @@
 <!doctype html>
+<!-- This file contains all the dropdowns functionality for the navbar to be created as well as the general buttons and links, they contain role authentication nested if else statements to allow access and viewability of 
+specific buttons and links depending on the users role type, it also holds some of laravels general profile links and content for logging in and registering -->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">

@@ -1,8 +1,8 @@
 // Body
 $body-bg: #FFF4DC;
-
+//added different colours to overwrite the original colours assigned to bootstrap colour labels
 $primary: #e78569;
-
+//changed the styling of bootstrap cards
 .card {
     border-color: #b36049 !important;
     border-width: 1.5px !important;
@@ -10,7 +10,7 @@ $primary: #e78569;
 }
 
 
-
+//changed the 
 .navbar {
     background: linear-gradient(180deg, #ffd0c4, #ffdcc2);
 }
