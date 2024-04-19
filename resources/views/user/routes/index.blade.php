@@ -18,7 +18,6 @@
             </div>
             <div class="offcanvas-body">
             <ul id="bookmarkedRoutes">
-        <!-- Bookmarked routes will be dynamically added here -->
     </ul>
             </div>
             </div>
@@ -88,8 +87,12 @@
         // Save state in localStorage
         localStorage.setItem('bookmark_' + routeId, isChecked);
         
-        // Send AJAX request to save bookmark
-        // (Same as before)
+        // Update side panel with bookmarked route information
+        if (isChecked) {
+            updateSidePanel(routeId);
+        } else {
+            removeSidePanelItem(routeId);
+        }
     }
 
     // Function to load checkbox state from localStorage
@@ -100,61 +103,26 @@
         // Update checkbox state if previously checked
         if (isChecked === 'true') {
             document.getElementById('checkbox_' + routeId).checked = true;
+            // Update side panel with bookmarked route information
+            updateSidePanel(routeId);
         }
     }
 
-    // Function to open the side panel and populate bookmarked routes
-    function openSidePanel() {
-        document.getElementById("sidePanel").classList.add('open');
-        populateBookmarkedRoutes(); // Populate bookmarked routes
+    function updateSidePanel(routeId) {
+        // Example of updating side panel with bookmarked route information
+        var sidePanelContent = document.getElementById('bookmarkedRoutes');
+        var routeInfo = document.createElement('li');
+        routeInfo.textContent = 'Route ID: ' + routeId;
+        routeInfo.id = 'bookmark_' + routeId; // Set an ID for the bookmarked route
+        sidePanelContent.appendChild(routeInfo);
     }
 
-    // Function to toggle the visibility of the side panel
-    function toggleSidePanel() {
-        var sidePanel = document.getElementById("sidePanel");
-        sidePanel.classList.toggle('open');
-    }
-
-    // Function to close the side panel
-    function closeSidePanel() {
-        var sidePanel = document.getElementById("sidePanel");
-        sidePanel.classList.remove('open');
-    }
-
-    // Function to populate bookmarked routes in the side panel
-    function populateBookmarkedRoutes() {
-        var bookmarkedRoutesList = document.getElementById('bookmarkedRoutes');
-        bookmarkedRoutesList.innerHTML = ''; // Clear previous content
-
-        // Example of adding static routes
-        var routes = [
-            { id: 1, start_location: "Location A", end_location: "Location B" },
-            { id: 2, start_location: "Location C", end_location: "Location D" },
-            { id: 3, start_location: "Location E", end_location: "Location F" }
-        ];
-
-        routes.forEach(function(route) {
-            var li = document.createElement('li');
-            li.textContent = route.start_location + ' to ' + route.end_location;
-            bookmarkedRoutesList.appendChild(li);
-        });
-
-        // Fetch and add bookmarked routes dynamically using AJAX
-        // Example:
-        // $.ajax({
-        //     url: '/fetch-bookmarked-routes',
-        //     method: 'GET',
-        //     success: function(response) {
-        //         response.bookmarkedRoutes.forEach(function(route) {
-        //             var li = document.createElement('li');
-        //             li.textContent = route.start_location + ' to ' + route.end_location;
-        //             bookmarkedRoutesList.appendChild(li);
-        //         });
-        //     },
-        //     error: function(xhr) {
-        //     // Handle error response if needed
-        //     }
-        // });
+    function removeSidePanelItem(routeId) {
+        var sidePanelContent = document.getElementById('bookmarkedRoutes');
+        var bookmarkedRoute = document.getElementById('bookmark_' + routeId);
+        if (bookmarkedRoute) {
+            sidePanelContent.removeChild(bookmarkedRoute);
+        }
     }
 
     // Call loadCheckBoxState for each route when the page loads
