@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
+        <h1 class="text-center mb-4 text-dark">All Private Route Stops</h1>
             <table class="table">
                 <thead>
                     <tr>

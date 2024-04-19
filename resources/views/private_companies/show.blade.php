@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Private Company Details') }}</div>
+            <div class="card-header">Private Company Id :  {{ $privateCompany->id }}</div>
 
                 <div class="card-body">
                     <div class="mb-3">

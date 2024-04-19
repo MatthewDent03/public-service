@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Report Details') }}</div>
+                <div class="card-header">Report Id :  {{ $report->id }}</div>
 
                 <div class="card-body">
                     <div class="mb-3">

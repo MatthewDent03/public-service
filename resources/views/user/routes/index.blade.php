@@ -3,14 +3,15 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        
         <div class="col-md-10">
             <!-- Add this link in your HTML -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <div class="text-end mb-3">
         <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
             View Bookmarked Routes
             </a>
+        </div>
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasExampleLabel">Bookmarked Routes</h5>
@@ -20,7 +21,7 @@
             <ul id="bookmarkedRoutes">
     </ul>
             </div>
-            </div>
+            </div><h1 class="text-center mb-4 text-dark">All Private Company Routes</h1>
                         <table class="table">
                 <thead>
                     <tr>
@@ -109,13 +110,16 @@
     }
 
     function updateSidePanel(routeId) {
-        // Example of updating side panel with bookmarked route information
-        var sidePanelContent = document.getElementById('bookmarkedRoutes');
-        var routeInfo = document.createElement('li');
-        routeInfo.textContent = 'Route ID: ' + routeId;
-        routeInfo.id = 'bookmark_' + routeId; // Set an ID for the bookmarked route
-        sidePanelContent.appendChild(routeInfo);
-    }
+    // Example of updating side panel with bookmarked route information
+    var sidePanelContent = document.getElementById('bookmarkedRoutes');
+    var routeLink = document.createElement('a');
+    routeLink.textContent = 'Route ID: ' + routeId;
+    routeLink.href = "{{ route('user.routes.show', ':routeId') }}".replace(':routeId', routeId);
+    routeLink.id = 'bookmark_' + routeId; // Set an ID for the bookmarked route
+    sidePanelContent.appendChild(routeLink);
+    sidePanelContent.appendChild(document.createElement('br'));
+}
+
 
     function removeSidePanelItem(routeId) {
         var sidePanelContent = document.getElementById('bookmarkedRoutes');
