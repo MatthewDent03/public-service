@@ -32,8 +32,8 @@ to allow users to be redirected correctly and access content according to their 
                         <th scope="col">Estimated Departure</th>
                         <th scope="col">Estimated Arrival</th>
                         <th scope="col">Journey Route</th>
+                        <th scope="col">Stop NumberPrivate Company Id</th>
                         <th scope="col">Private Company Id</th>
-                        <th scope="col">Stop Number</th>
                         <th scope="col">Actions</th>
                         <th scope="col">Bookmark</th>
                     </tr>
